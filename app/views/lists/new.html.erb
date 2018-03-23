@@ -1,0 +1,24 @@
+<div class='main-content'>
+  <%= form_for @lists, url: lists_path do |f| %>
+  <p><%= f.text_area :message, placeholder: "Please enter your Event here...", class: 'textbox-event', :required => true %></p>
+  <p><%= f.text_field :location, placeholder: "Location (Optional)", class: 'textbox-location' %></p>
+  <p><%= f.datetime_local_field :datetime, class: 'textbox-date', :required => true %></p>
+  <p><strong>Status: </strong><%= f.select :status, [['Pending', 'Pending'], ['Completed', 'Completed']] %></p>
+  <br>
+
+  <div class='option'>
+    <%= image_submit_tag("/assets/save.png", width: '35', height: '35', class: 'option-button') %>
+    <%= link_to image_tag('/assets/home.png', size: '35x35'), root_path, class: 'option-button' %>
+  </div>
+
+  <% end %>
+
+  <br>
+
+</div>
+
+<div class='footer'>
+  &nbsp
+</div>
+
+</div>

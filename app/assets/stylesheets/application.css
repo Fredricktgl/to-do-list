@@ -1,0 +1,167 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body{
+  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-areas: "header createbutton"
+                       "searchbar searchbar"
+                       "main-content main-content"
+                       "footer footer";
+}
+
+@media (min-width: 600px) {
+  .container{
+      width: 600px;
+      position: relative;
+      display: grid;
+      margin-left: auto;
+      margin-right:auto;
+      grid-template-columns: 5fr 1fr;
+      grid-template-areas: "header createbutton"
+                           "searchbar searchbar"
+                           "main-content main-content"
+                           "footer footer";
+    }
+  }
+
+.header{
+  grid-area: header;
+  background-color: #50C878;
+  padding-left: 0.5em;
+  border-radius: 1em 0 0 0;
+}
+
+.createbutton{
+  grid-area: createbutton;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: right;
+  background-color: #50C878;
+  padding-right: 0.5em;
+  border-radius: 0 1em 0 0;
+}
+
+.buttonsize{
+  font-size: 2em;
+  width: 1.5em;
+  height: 1.5em;
+  color: #50C878;
+  font-weight: 900;
+}
+
+.searchbar{
+  grid-area: searchbar;
+  background-color: #90EE90;
+  display: flex;
+  padding: 0.3em 0.5em 0.3em 0.5em;
+}
+
+.searchbar-text{
+  display: flex;
+  justify-content: center;
+}
+
+.searchbar-button{
+  padding-left: 0.5em;
+}
+
+.main-content{
+  grid-area: main-content;
+  background-color: #F0FFF0;
+}
+
+p {
+  margin: 0.5em;
+}
+
+.textbox-event{
+  width: 99%;
+  height: 10em;
+}
+
+.textbox-location{
+  width: 60%;
+  height: 1.5em;
+}
+
+.textbox-date{
+  width: 40%;
+  height: 1.5em;
+}
+
+.option{
+  justify-content: flex-start;
+  display: flex;
+}
+
+.option-button{
+  margin-left: 0.5em;
+  font-size: 0.9em;
+}
+
+.footer{
+  grid-area: footer;
+  background-color: #50C878;
+  justify-content: center;
+  display: flex;
+  border-radius: 0 0 1em 1em;
+  height: 2em;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-text{
+  text-align: center;
+  font-size: 0.9em;
+}
+
+a:hover {
+  background-color: #3FFF00;
+  padding: 2px 4px 2px 4px;
+  border-radius: 10%;
+  text-decoration: none;
+  color: blue;
+  font-weight: 600;
+}
+
+a:hover.delete{
+  background-color: lightcoral;
+  padding: 2px 4px 2px 4px;
+  border-radius: 10%;
+}
+
+a:link{
+  color:blue;
+  text-decoration: none;
+}
+
+a:visited{
+  color:blue;
+  text-decoration: none;
+}
+
+a:active{
+  color:blue;
+  text-decoration: none;
+}

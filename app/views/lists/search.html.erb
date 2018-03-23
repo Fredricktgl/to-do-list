@@ -1,0 +1,51 @@
+<div class='main-content'>
+
+  <% if @lists.blank?%>
+
+  <br>
+  <p><strong>No results found, please try again</strong></p>
+  <p><strong>Alternatively, you can return back to main page <a href="/">here</a></strong></p>
+    
+  <br>
+
+  <% else %>
+
+  <% @lists.each do |x| %>
+            
+    <p><strong>Event: </strong><%= x.message %> <%= link_to '...more', list_path(x) %></p>
+
+    <p><strong>Location: </strong>
+    <% if x.location === ''%>
+       No location set
+    <% else %>
+      <a target="_blank" href="https://maps.google.com/maps?q=<%= x.location %>"><%= x.location %></a> 
+    <% end %>
+    </p>
+
+    <p><strong>Date: </strong><%= x.datetime.strftime('%a, %d %b %Y %H:%M')%></p>
+
+    <div class='option'>
+      <%= link_to image_tag('/assets/pencil.png', size: '35x35'), edit_list_path(x), class: 'option-button' %>
+      <%= link_to image_tag('/assets/trash.png', size: '35x35'), x, method: :delete, data: { confirm: 'Are you sure?' }, class: 'option-button delete' %>
+    </div>
+                
+    <br>
+
+    <% end %>
+
+  <% end %>
+ 
+</div>
+
+<div class='footer'>
+
+    <%= form_tag search_lists_path, method: :get do %>
+    <%= submit_tag 'Page'%>
+    <%= text_field_tag :p, params[:p], placeholder: '1', size: '2', class: 'footer-text'%> / 
+    <%= (@lists1.count.to_f / 4).ceil %>
+
+  <% end %>
+
+</div>
+
+</div>

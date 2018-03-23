@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My To Do List</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <div class='container'>
+    <div class='header'>
+      <h1><strong>A simple to-do list</strong></h1>
+    </div>
+
+    <div class='createbutton'>
+      <%= button_to '+', new_list_path, method: :get, class: 'buttonsize' %>
+    </div>
+
+    <div class='searchbar'>
+      
+      <%= form_tag search_lists_path, method: :get, class: 'searchbar-text' do %>
+      <%= text_field_tag :q, params[:q], placeholder: 'Event & location search' %>
+      <%= hidden_field_tag :p, 1 %>
+      <%= image_submit_tag("/assets/find.png", width: '25', height: '25', class: 'searchbar-button') %>
+      <% end %>
+
+    </div>
+  
+    <%= yield %>
+
+  </body>
+</html>

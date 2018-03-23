@@ -1,0 +1,35 @@
+<div class='main-content'>
+
+  <p><strong>Event: </strong><%= @lists.message %></p>
+
+  <% if @lists.location === '' %>
+    <p><strong>Location: </strong>No location set</p>
+  <% else %>
+    <p><strong>Location: </strong><%= @lists.location %></p>
+    <iframe width="100%"
+            height="400"
+            frameborder="0" style="border:0"
+            src="//www.google.com/maps/embed/v1/place?key=#{ENV['API_KEY']}&q=<%= @lists.location %>" allowfullscreen>
+    </iframe>
+  <% end %>
+
+  <p><strong>Date: </strong><%= @lists.datetime.strftime('%a, %d %b %Y %H:%M') %></p>
+  <p><strong>Status: </strong><%= @lists.status %></p>
+
+  <br>
+
+  <div class='option'>
+    <%= link_to image_tag('/assets/home.png', size: '35x35'), root_path, class: 'option-button' %>
+    <%= link_to image_tag('/assets/pencil.png', size: '35x35'), edit_list_path(@lists), class: 'option-button' %>
+    <%= link_to image_tag('/assets/trash.png', size: '35x35'), @lists, method: :delete, data: { confirm: 'Are you sure?' }, class: 'option-button delete' %>
+  </div>
+
+  <br>
+
+</div>
+
+<div class='footer'>
+  &nbsp
+</div>
+
+</div>

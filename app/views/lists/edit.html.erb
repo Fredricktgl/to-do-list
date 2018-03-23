@@ -1,0 +1,23 @@
+<div class='main-content'>
+  <%= form_for @lists, url: list_path, method: :put do |f| %>
+    <p><strong>Please edit the selected event</strong></p>
+    <p><%= f.text_area :message, class: 'textbox-event', :required => true %></p>
+    <p><%= f.text_field :location, placeholder: "Location (Optional)", class: 'textbox-location' %></p>
+    <p><%= f.datetime_local_field :datetime, class: 'textbox-date', :required => true %></p>
+    <p><strong>Status: </strong><%= f.select :status, [['Pending', 'Pending'], ['Completed', 'Completed']] %></p>
+    <br>
+    
+    <div class='option'>
+      <%= image_submit_tag("/assets/save.png", width: '35', height: '35', class: 'option-button') %>
+      <%= link_to image_tag('/assets/back.png', size: '35x35'), request.referer.present? ? request.referer : root_path, class: 'option-button' %>
+      <%= link_to image_tag('/assets/home.png', size: '35x35'), root_path, class: 'option-button' %>
+      <%= link_to image_tag('/assets/trash.png', size: '35x35'), @lists, method: :delete, data: { confirm: 'Are you sure?' }, class: 'option-button delete' %>
+    </div>
+    
+  <% end %>
+
+  <br>
+
+</div>
+
+</div>
